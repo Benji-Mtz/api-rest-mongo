@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo:4.4
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27027:27017
+    volumes:
+      - ./mongo_data:/data/db
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - 6379:6379
+    #command: redis-server --save 60 1 --requirepass MDNcVb924a --loglevel warning
